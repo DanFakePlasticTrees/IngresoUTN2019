@@ -3,6 +3,8 @@ Transformarlo a entero (parseInt), luego
 mostrar el importe con un Descuento del 25 %
 en el cuadro de texto "RESULTADO"*/
 function MostrarDescuento()
-{
+{ var nombre;
+    nombre = prompt ("Ingresa tu nombre");
+alert(nombre);
 	
 }
