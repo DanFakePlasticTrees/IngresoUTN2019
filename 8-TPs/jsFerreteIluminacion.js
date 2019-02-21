@@ -10,5 +10,33 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	
+     var cantidad = parseInt(document.getElementById ("Cantidad").value);
+     var marca = (document.getElementById ("Marca").value);
+     var precio = cantidad * 35;
+    var cincuentaPorCiento = (precio * 50) / 100;
+    var cuarentaPorCiento = (precio * 40) / 100;
+    var treintaPorCiento = (precio * 30) / 100;
+    var veinticincoPorCiento = (precio * 25) / 100;
+    var veintePorCiento = (precio * 20) / 100;
+    var quincePorCiento = (precio * 15) / 100;
+    var diezPorCiento = (precio * 10) / 100;
+    var cincoPorCiento = (precio * 5) / 100;
+    var precioFinal;
+    precioFinal=parseInt(precioFinal);
+    
+   
+   if (cantidad >= 6) {precioFinal = precio - cincuentaPorCiento; } 
+else {if (cantidad == 5) {if (marca =="ArgentinaLuz"){precioFinal = precio - cuarentaPorCiento;}
+else {precioFinal = precio - treintaPorCiento;}}
+else {if (cantidad ==4){if (marca=="ArgentinaLuz"||marca == "FelipeLamparas"){precioFinal = precio - veintePorCiento;}
+else {precioFinal= precio- quincePorCiento;}} else {if (cantidad == 3)
+    {if(marca=="ArgentinaLuz"){precioFinal = precio - quincePorCiento; } 
+    else {if(marca=="FelipeLamparas") {precioFinal= precio - diezPorCiento;}
+else {precioFinal= precio - cincoPorCiento;}}}}}}
+
+document.getElementById("precioDescuento").value= precioFinal;
+ var ingresosBrutos = (precioFinal*10)/100;
+if (precioFinal >= 120) { document.getElementById("precioDescuento").value= precioFinal + ingresosBrutos;
+alert("Usted pagó IBB: " + ingresosBrutos);}
+
 }
