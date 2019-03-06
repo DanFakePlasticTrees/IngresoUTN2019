@@ -1,9 +1,15 @@
 //Debemos lograr mostrar un mensaje al presionar el botón  'MOSTRAR'.
 function Mostrar()
-{
-	var importe = parseInt(prompt("ingrese el importe"));
-    var iva = (importe*21)/100;
+{ var importe = parseInt ( prompt ("Ingrese un importe: "));
+var iva; 
 
-document.getElementById("importe").value = importe + iva;
+while (importe < 0 || isNaN (importe)){
+    importe = parseInt ( prompt ("Ingrese un importe válido : "));}
+
+    iva = 21*importe/100;
+document.getElementById('importe').value = importe + iva; 
+
+
+
 }
 

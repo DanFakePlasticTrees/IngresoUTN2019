@@ -1,38 +1,46 @@
 //Debemos lograr mostrar un mensaje al presionar el botón  'MOSTRAR'.
 function Mostrar() {
-	var nota;
-    var sexo;
-    var promedio;
-    var notaMasBaja;
-var notaMasAlta;
+var nota;
+var sexo;
+var acumulador=0;
+var promedio;
+var notaBaja;
+var sexoNotaBaja;
+var varonesMayoraSeis=0;
+flag = 0;
+
+for ( i = 0; i< 7; i++) {
+ nota = parseInt ( prompt ( "Ingrese nota: "));
+
+ while (isNaN (nota) || nota < 0 || nota > 10) {
+    nota = parseInt ( prompt ( "Error. Ingrese nota: "));}
 
 
-nota = parseInt (prompt("Ingrese nota de alumno"+ i));
+    sexo = prompt("Indique sexo del alumno: ").toLowerCase();
+    while (sexo != "m" && sexo != "f") {
+     sexo = prompt("Error. Indique sexo del alumno: ").toLowerCase();}
 
 
+acumulador = acumulador + nota;
 
-sexo = prompt ("Ingrese sexo de alumno " + i).toLowerCase;
-
-
-
-
-for (var i = 1; i <=6; i++){
-
-while (nota < 0 || nota > 10 || isNaN(nota)) {
-
-nota = parseInt (prompt("Error. Ingrese nota de alumno " + i));
-
-}
-
-while (sexo != "f" || sexo != "m") {
-
- sexo = prompt ("Error. Ingrese sexo de alumno " + i).toLowerCase;
-}
-
-if (nota > notaMasAlta || flag ==0) {
-    notaMasAlta =nota;
-    
-}
+if ( nota < notaBaja || flag == 0){
+notaBaja = nota;
+sexoNotaBaja = sexo;
+flag =1;
 
 }
+
+if ( nota >= 6 && sexo == "m"){
+varonesMayoraSeis++;
+
+}
+}
+promedio= acumulador/i;
+
+alert( "El promedio es " + promedio.toFixed(2)+ ". La nota más baja es de: "+ notaBaja+
+". El sexo del alumno con nota más baja es " + sexoNotaBaja + 
+". La cantidad de varones aprobados es " + varonesMayoraSeis)
+
+
+
 }
